@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { withAuth0 } from "@auth0/auth0-react";
+import Login from './components/Login'
 
 import FavFlowers from "./components/FavFlowers";
 class App extends React.Component {
@@ -15,11 +16,11 @@ class App extends React.Component {
         <Router>
           <Header />
           <Switch>
-            <Route exact path="/">
-              <Home />
+            <Route exact path="/">{isAuthenticated?(<Home/>):(<Login/>)}
+            
             </Route>
-            <Route exact path="/favFlowers">
-              <FavFlowers />
+            <Route exact path="/favFlowers">{isAuthenticated && (<FavFlowers/>)}
+         
             </Route>
           </Switch>
           <Footer />
