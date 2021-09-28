@@ -37,7 +37,7 @@ class Home extends React.Component {
               <Card.Text>
                 {el.instructions}
               </Card.Text>
-                <Button variant="primary" onClick={this.addToFav({ name: el.name, instructions: el.instructions, photo: el.photo, email: this.props.auth0.user.email })}>add to fav</Button>
+                <Button variant="primary" onClick={() => { this.addToFav({ name: el.name, instructions: el.instructions, photo: el.photo, email: this.props.auth0.user.email }) }}>add to fav</Button>
             </Card.Body>
           </Card>
         )})}
